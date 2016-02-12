@@ -1,5 +1,6 @@
 package com.example.phantom.lvmessage_1;
 
+import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+
 public class MainActivity extends AppCompatActivity {
 
+    private HSSFWorkbook classeur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,19 @@ public class MainActivity extends AppCompatActivity {
 
         day_msg.setTypeface(font);
         message.setTypeface(font);
+
+        }
+
+    public void openExcelFIle(){
+
+        final AssetManager assetManager = getAssets();
+        try {
+            InputStream input = assetManager.open("Messages_Appli.xlsx");
+            POIFSFileSystem myFileSystem = new POIFSFileSystem(input);
+            this.classeur = new HSSFWorkbook(myFileSystem);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
