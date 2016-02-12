@@ -6,14 +6,6 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "com.example.phantom.lvmessage_1.SettingsActivity"/>
-      <point      
-        x = "1760"      
-        y = "168"/>
-    </statePointEntry>
-    <statePointEntry>
-      <state      
-        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "com.example.phantom.lvmessage_1.MainActivity"/>
       <point      
         x = "550"      

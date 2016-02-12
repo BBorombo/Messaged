@@ -1,15 +1,8 @@
 package com.example.phantom.lvmessage_1;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -22,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Récupération des champs, ajout de la police
         TextView day_msg = (TextView) findViewById(R.id.day_msg);
         TextView message = (TextView) findViewById(R.id.message);
 
@@ -30,35 +24,7 @@ public class MainActivity extends AppCompatActivity {
         day_msg.setTypeface(font);
         message.setTypeface(font);
 
-        MessageDAO mDAO = new MessageDAO(this);
-        BackgroundProcess bp = new BackgroundProcess(mDAO);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.settings);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
     }
-/*
-    public void init(){
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("AppPreferences", 0);
-        SharedPreferences.Editor edit = sp.edit();
-        edit.putInt("Heure", 10);
-        edit.putInt("Minute",00);
-        edit.commit();
-    }
-
-    public void afficher(){
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("ApppPreferences", 0);
-        String h = sp.getString("Heure", null);
-        Log.d("Test",h);
-    }*/
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
